@@ -19,6 +19,7 @@ export default function App() {
           path:'category-items/:name',
           element:<CategoryItems/>
         },
+        
         {
           path:'meal/:id',
           element:<Meal/>
