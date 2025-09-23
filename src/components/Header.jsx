@@ -1,4 +1,9 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@heroui/react";
+import {Navbar,
+   NavbarBrand,
+   NavbarContent,
+   NavbarItem
+  } from "@heroui/react";
+import { Link, NavLink } from "react-router";
 export default function Header() {
   return (
      <Navbar>
@@ -26,11 +31,7 @@ export default function Header() {
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+       <NavLink to={'/add-user'}>Add User</NavLink>
       </NavbarContent>
     </Navbar>
   )

@@ -1,30 +1,24 @@
 import { createBrowserRouter } from "react-router"
 import RootLayout from "./components/RootLayout"
-import Categories from "./categories/Categories"
 import { RouterProvider } from "react-router-dom"
-import CategoryItems from "./category-items/CategoryItems"
-import Meal from "./meal/Meal"
+import Home from "./home/Home"
+import UserAdd from "./users/UserAdd"
 
 export default function App() {
   const router = createBrowserRouter([
-    {
+    { 
       path:'/',
       element:<RootLayout/>,
       children:[
         {
           index:true,
-          element:<Categories/>
+          element:<Home/>
         },
+
         {
-          path:'category-items/:name',
-          element:<CategoryItems/>
-        },
-        
-        {
-          path:'meal/:id',
-          element:<Meal/>
+          path:'add-user',
+          element:<UserAdd/>
         }
-        
       ]
     }
   ])
