@@ -1,12 +1,23 @@
-import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
 
+
+// export default function Home() {
+//   const {users} = useSelector((state)=> state.userSlice);
+//  console.log(users);
+//   return (
+//     <div>
+      
+//     </div>
+//   )
+// }
+
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  const {users} = useSelector((state)=>state.userSlice);
- console.log(users);
-  return (
-    <div>
-      
-    </div>
-  )
+  const { users } = useSelector((state) => state.user); // adjust 'user' based on combineReducers
+
+  console.log(users);
+
+  return <div></div>;
 }
+
