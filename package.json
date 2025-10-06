@@ -12,7 +12,7 @@
   "dependencies": {
     "@heroui/button": "^2.2.25",
     "@heroui/form": "^2.1.26",
-    "@heroui/react": "^2.8.3",
+    "@heroui/react": "^2.8.4",
     "@heroui/system": "^2.4.22",
     "@heroui/theme": "^2.4.22",
     "@reduxjs/toolkit": "^2.9.0",
@@ -20,6 +20,7 @@
     "axios": "^1.11.0",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
+    "nanoid": "^5.1.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
@@ -28,7 +29,7 @@
     "redux": "^5.0.1",
     "tailwindcss": "^4.1.12",
     "uuid": "^11.1.0",
-    "yup": "^1.7.0"
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

@@ -1,23 +1,43 @@
-// import { useSelector } from "react-redux"
-
-
-// export default function Home() {
-//   const {users} = useSelector((state)=> state.userSlice);
-//  console.log(users);
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-import { useSelector } from "react-redux";
-
+import { useSelector } from "react-redux"
+import {Card, CardHeader, CardBody, CardFooter, Divider, Button} from "@heroui/react";
+import RemoveUser from "../users/RemoveUser";
+import { useNavigate } from "react-router";
 export default function Home() {
-  const { users } = useSelector((state) => state.user); // adjust 'user' based on combineReducers
+    const {users} = useSelector((state)=>state.userSlice);
+    const nav = useNavigate();
+  return (
+    <div className="p-5 grid grid-cols-3 gap-5">
+      {users.map((user,i)=>{
+        return  <Card  key={user.id} >
+      <CardHeader className="flex gap-3">
+        
+        <div className="flex flex-col">
+          <p className="text-md">{user.username}</p>
+          <p className="text-small text-default-500">{user.email}</p>
+        </div>
+      </CardHeader>
+      <Divider />
+      <CardBody>
+        <p>{user.description}</p>
+      </CardBody>
+      <Divider />
+      <CardFooter className="flex justify-between ">
+        <div className="flex gap-5">
+       <p>{user.country}</p>
+       <p>{user.gender}</p>
+        </div>
 
-  console.log(users);
-
-  return <div></div>;
+        <div className="flex gap-5" >
+          <Button onPress={() => nav(`/edit-user/${user.id}`)}
+ isIconOnly aria-label="Like" color="secondary">
+            <i className="fa-solid fa-pen-to-square"></i>
+      </Button>
+      
+          <RemoveUser index={i} />
+        </div>
+      </CardFooter>
+    </Card>
+      })}
+    </div>
+  )
 }
-
