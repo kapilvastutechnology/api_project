@@ -1,10 +1,22 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'; 
+export const cocktailApi = createApi({
+  reducerPath: 'cocktailApi',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://www.thecocktaildb.com/api/json/v1/1' }),
+  endpoints: (builder) => ({
+    getCocktails: builder.query({ 
+      query: () => ({
+        url: '/filter.php',
+        params: { 
+          c: 'Cocktail' 
+        },
+        method: 'GET',
+      })
+    }),
 
-
-
-import { createApi } from '@reduxjs/toolkit/query/react'
-
-export const pokemonApi = createApi({
-  reducerPath: 'pokemonApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' })
- 
   })
+
+});
+
+export const {useGetCocktailsQuery, useLazyGetCocktailsQuery} = cocktailApi;
+
+

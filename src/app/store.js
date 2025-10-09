@@ -1,16 +1,12 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import { cocktailApi } from "../features/cocktails/CocktailApi";
-// import { getDefaultValueType } from "framer-motion";
-// import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { configureStore } from '@reduxjs/toolkit'; 
+import { cocktailApi } from '../features/cocktailApi/CocktailApi';
 
-// export const store = configureStore({
-//     reducer:{
-//         cocktailApi:cocktailApi.reducer
-//     },
-//     // caching, invalidation, polling
-//     middleware: (getDefaultValueType)=>
-//         getDefaultValueType().concat([
-//             cocktailApi.middleware
-//         ]),
-    
-// })
+export const store = configureStore({
+  reducer: {
+    cocktailApi: cocktailApi.reducer
+  },
+  //caching, invalidation, polling, and other useful features of RTK Query  
+  middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware().concat([
+        cocktailApi.middleware]),
+}); 
