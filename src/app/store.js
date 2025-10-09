@@ -1,12 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'; 
 import { cocktailApi } from '../features/cocktailApi/CocktailApi';
-
+import { commentApi} from '../features/comments/commentApi';
+import { userApi } from '../features/users/usersApi';
 export const store = configureStore({
   reducer: {
-    cocktailApi: cocktailApi.reducer
+    [cocktailApi.reducerPath] : cocktailApi.reducer,
+    [commentApi.reducerPath] :commentApi.reducer,
+    [userApi.reducerPath] : userApi.reducer,
   },
-  //caching, invalidation, polling, and other useful features of RTK Query  
+
   middleware: (getDefaultMiddleware) => 
     getDefaultMiddleware().concat([
-        cocktailApi.middleware]),
+        cocktailApi.middleware,
+        commentApi.middleware,
+        userApi.middleware
+      ]),
 }); 
